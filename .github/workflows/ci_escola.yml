@@ -1,23 +1,14 @@
-name: Java CI
-
-on:
-  push:
-    branches: [ "main", "feat-notas", "feat-frequencia" ]
-  pull_request:
-    branches: [ "main" ]
-
+name: CI SchoolSync
+on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
-
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
+      
+      - uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
-
-      - name: Compile Java Code
-        run: javac *.java
+          
+      - run: javac *.java
